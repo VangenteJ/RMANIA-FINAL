@@ -201,6 +201,7 @@
                         <outlet property="txtPassword" destination="DqU-z7-vQN" id="wTT-8C-Iaz"/>
                         <outlet property="txtRePassword" destination="rxX-EO-N64" id="ZVj-pf-VRg"/>
                         <segue destination="wi5-Wr-SvA" kind="show" identifier="menu" id="iwA-0v-w5D"/>
+                        <segue destination="AGr-qt-6Qe" kind="show" identifier="ResetPassword" id="TBU-Bk-YuZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -405,6 +406,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Po7-M5-prI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="216.80000000000001" y="887.40629685157433"/>
+        </scene>
+        <!--ResetP Controller-->
+        <scene sceneID="a1a-rV-gWK">
+            <objects>
+                <viewController storyboardIdentifier="ResetPController" id="AGr-qt-6Qe" customClass="ResetPController" customModule="RMania" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1FX-PL-de5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="7ne-VR-wsv">
+                                <rect key="frame" x="0.0" y="20" width="375" height="212.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zkb-Pk-N80">
+                                        <rect key="frame" x="166.5" y="0.0" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lBz-Wv-FC8">
+                                        <rect key="frame" x="87.5" y="54.5" width="200" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="lz6-H3-lIE"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFX-eu-Gfh">
+                                        <rect key="frame" x="168" y="118.5" width="39" height="30"/>
+                                        <state key="normal" title="Reset"/>
+                                        <connections>
+                                            <action selector="reset_Pass:" destination="AGr-qt-6Qe" eventType="touchUpInside" id="Agb-oM-TsW"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SjG-mk-5X6">
+                                        <rect key="frame" x="163.5" y="182.5" width="48" height="30"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="goBack:" destination="AGr-qt-6Qe" eventType="touchUpInside" id="58M-LR-Zsa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7ne-VR-wsv" firstAttribute="width" secondItem="1FX-PL-de5" secondAttribute="width" id="Bgf-0f-KRf"/>
+                            <constraint firstItem="riL-gL-DeZ" firstAttribute="trailing" secondItem="7ne-VR-wsv" secondAttribute="trailing" id="Q3s-Ba-1qT"/>
+                            <constraint firstItem="7ne-VR-wsv" firstAttribute="leading" secondItem="riL-gL-DeZ" secondAttribute="leading" id="eQG-iR-T1A"/>
+                            <constraint firstItem="7ne-VR-wsv" firstAttribute="top" secondItem="riL-gL-DeZ" secondAttribute="top" id="gdG-PF-IuL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="riL-gL-DeZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="txtemail" destination="lBz-Wv-FC8" id="Klg-ld-2gV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xG8-RZ-H5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="210" y="-602"/>
         </scene>
         <!--Join Controller-->
         <scene sceneID="1uU-48-i0v">

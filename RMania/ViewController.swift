@@ -124,6 +124,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func reset_password(_ sender: Any) {
+        self.performSegue(withIdentifier: "ResetPassword", sender: self)
     }
     
 }
