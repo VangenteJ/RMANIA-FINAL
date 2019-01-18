@@ -459,4 +459,12 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
         })
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        txtEntry1.resignFirstResponder()
+        txtEntry2.resignFirstResponder()
+        txtEntry3.resignFirstResponder()
+        txtEntry4.resignFirstResponder()
+        txtEntry5.resignFirstResponder()
+        txtSelerName_Token.resignFirstResponder()
+    }
 }

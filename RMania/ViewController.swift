@@ -20,12 +20,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var lblPassword: UILabel!
     @IBOutlet weak var lblReenter_Password: UILabel!
     @IBOutlet weak var lblUser: UILabel!
-    @IBOutlet weak var lblName: UILabel!
     
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtRePassword: UITextField!
-    @IBOutlet weak var txtName: UITextField!
     
     @IBOutlet weak var btnLog_Reg: UIButton!
     @IBOutlet weak var btnYes: UIButton!
@@ -33,7 +31,6 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var stackYesNo: UIStackView!
     @IBOutlet weak var reStack: UIStackView!
-    @IBOutlet weak var nameStack: UIStackView!
     
     @IBOutlet weak var btnResetPassword: UIButton!
     
@@ -68,7 +65,7 @@ class ViewController: UIViewController {
                     }
                 }
             }else {
-                if txtName.text != "" && email != "" && pass != "" && pass2 == pass{
+                if email != "" && pass != "" && pass2 == pass{
                     Auth.auth().createUser(withEmail: email, password: pass) { (user, error) in
                         if user != nil {
                             self.mainMenu()
@@ -127,4 +124,9 @@ class ViewController: UIViewController {
         self.performSegue(withIdentifier: "ResetPassword", sender: self)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        txtEmail.resignFirstResponder()
+        txtPassword.resignFirstResponder()
+        txtRePassword.resignFirstResponder()
+    }
 }
