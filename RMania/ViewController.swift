@@ -35,9 +35,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var btnResetPassword: UIButton!
     
     var user:DatabaseReference!
+    var ref:DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Database.database().reference()
         isLogged()
         
     }
@@ -68,6 +70,7 @@ class ViewController: UIViewController {
                 if email != "" && pass != "" && pass2 == pass{
                     Auth.auth().createUser(withEmail: email, password: pass) { (user, error) in
                         if user != nil {
+                            self.ref.child("Admin").child((user?.uid)!).child("Access").setValue("No")
                             self.mainMenu()
                         }
                         self.lblLog_Reg.textColor = UIColor.red

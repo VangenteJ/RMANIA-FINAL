@@ -83,58 +83,55 @@ class HistoricController: UIViewController, UIImagePickerControllerDelegate, UIN
             lblDes1.text = txtDes1.text
             let previous_w = ref.child("Winners").child("Winner1")
             previous_w.setValue(txtDes1.text)
+            txtDes1.text = ""
             
+        }else{
+            lblDes1.isHidden = true
+            imageview1.isHidden = true
         }
         
     }
     @IBAction func addDes2(_ sender: Any) {
-        if txtDes2.text != ""{
-            lblDes2.text = txtDes2.text
-            let previous_w = ref.child("Winners").child("Winner2")
-            previous_w.setValue(txtDes2.text)
-        }
+        lblDes2.text = txtDes2.text
+        let previous_w = ref.child("Winners").child("Winner2")
+        previous_w.setValue(txtDes2.text)
+        txtDes2.text = ""
     }
     @IBAction func addDes3(_ sender: Any) {
-        if txtDes3.text != ""{
-            lblDes3.text = txtDes3.text
-            let previous_w = ref.child("Winners").child("Winner3")
-            previous_w.setValue(txtDes3.text)
-        }
+        lblDes3.text = txtDes3.text
+        let previous_w = ref.child("Winners").child("Winner3")
+        previous_w.setValue(txtDes3.text)
+        txtDes3.text = ""
     }
     @IBAction func addDes4(_ sender: Any) {
-        if txtDes4.text != ""{
-            lblDes4.text = txtDes4.text
-            let previous_w = ref.child("Winners").child("Winner4")
-            previous_w.setValue(txtDes4.text)
-        }
+        lblDes4.text = txtDes4.text
+        let previous_w = ref.child("Winners").child("Winner4")
+        previous_w.setValue(txtDes4.text)
+        txtDes4.text = ""
     }
     @IBAction func addDes5(_ sender: Any) {
-        if txtDes5.text != ""{
-            lblDes5.text = txtDes5.text
-            let previous_w = ref.child("Winners").child("Winner5")
-            previous_w.setValue(txtDes5.text)
-        }
+        lblDes5.text = txtDes5.text
+        let previous_w = ref.child("Winners").child("Winner5")
+        previous_w.setValue(txtDes5.text)
+        txtDes5.text = ""
     }
     @IBAction func addDes6(_ sender: Any) {
-        if txtDes6.text != ""{
-            lblDes6.text = txtDes6.text
-            let previous_w = ref.child("Winners").child("Winner6")
-            previous_w.setValue(txtDes6.text)
-        }
+        lblDes6.text = txtDes6.text
+        let previous_w = ref.child("Winners").child("Winner6")
+        previous_w.setValue(txtDes6.text)
+        txtDes6.text = ""
     }
     @IBAction func addDes7(_ sender: Any) {
-        if txtDes7.text != ""{
-            lblDes7.text = txtDes7.text
-            let previous_w = ref.child("Winners").child("Winner7")
-            previous_w.setValue(txtDes7.text)
-        }
+        lblDes7.text = txtDes7.text
+        let previous_w = ref.child("Winners").child("Winner7")
+        previous_w.setValue(txtDes7.text)
+        txtDes7.text = ""
     }
     @IBAction func addDes8(_ sender: Any) {
-        if txtDes8.text != ""{
-            lblDes8.text = txtDes8.text
-            let previous_w = ref.child("Winners").child("Winner8")
-            previous_w.setValue(txtDes8.text)
-        }
+        lblDes8.text = txtDes8.text
+        let previous_w = ref.child("Winners").child("Winner8")
+        previous_w.setValue(txtDes8.text)
+        txtDes8.text = ""
     }
     
     
@@ -448,72 +445,153 @@ class HistoricController: UIViewController, UIImagePickerControllerDelegate, UIN
         handle = previous_w.child("Winner1").observe(.value, with: { (snapshot) in
             if snapshot.value as? String != nil{
                 let winner = snapshot.value as? String
-                self.lblDes1.text = winner
-                self.imageview1.isHidden = false
-                self.lblDes1.isHidden = false
+                if winner != ""{
+                    self.lblDes1.text = winner
+                    self.imageview1.isHidden = false
+                    self.lblDes1.isHidden = false
+                }else{
+                    if Auth.auth().currentUser?.uid != nil{
+                        if Auth.auth().currentUser?.uid != "ATCiDNYJhYUgD8vRORJW7PaDAmj1"{
+                            self.imageview1.isHidden = true
+                            self.lblDes1.isHidden = true
+                        }
+                    }
+                    
+                }
+                
             }
         })
         // Winner 2
         handle = previous_w.child("Winner2").observe(.value, with: { (snapshot) in
             if snapshot.value as? String != nil{
                 let winner = snapshot.value as? String
-                self.lblDes2.text = winner
-                self.imageview2.isHidden = false
-                self.lblDes2.isHidden = false
+                if winner != ""{
+                    self.lblDes2.text = winner
+                    self.imageview2.isHidden = false
+                    self.lblDes2.isHidden = false
+                }else{
+                    if Auth.auth().currentUser?.uid != nil{
+                        if Auth.auth().currentUser?.uid != "ATCiDNYJhYUgD8vRORJW7PaDAmj1"{
+                            self.imageview2.isHidden = true
+                            self.lblDes2.isHidden = true
+                        }
+                    }
+                    
+                }
             }
         })
         // Winner 3
         handle = previous_w.child("Winner3").observe(.value, with: { (snapshot) in
             if snapshot.value as? String != nil{
                 let winner = snapshot.value as? String
-                self.lblDes3.text = winner
-                self.imageview3.isHidden = false
-                self.lblDes3.isHidden = false
+                if winner != ""{
+                    self.lblDes3.text = winner
+                    self.imageview3.isHidden = false
+                    self.lblDes3.isHidden = false
+                }else{
+                    if Auth.auth().currentUser?.uid != nil{
+                        if Auth.auth().currentUser?.uid != "ATCiDNYJhYUgD8vRORJW7PaDAmj1"{
+                            self.imageview3.isHidden = true
+                            self.lblDes3.isHidden = true
+                        }
+                    }
+                    
+                }
             }
         })
         // Winner 4
         handle = previous_w.child("Winner4").observe(.value, with: { (snapshot) in
             if snapshot.value as? String != nil{
                 let winner = snapshot.value as? String
-                self.lblDes4.text = winner
-                self.imageview4.isHidden = false
-                self.lblDes4.isHidden = false
+                if winner != ""{
+                    self.lblDes4.text = winner
+                    self.imageview4.isHidden = false
+                    self.lblDes4.isHidden = false
+                }else{
+                    if Auth.auth().currentUser?.uid != nil{
+                        if Auth.auth().currentUser?.uid != "ATCiDNYJhYUgD8vRORJW7PaDAmj1"{
+                            self.imageview4.isHidden = true
+                            self.lblDes4.isHidden = true
+                        }
+                    }
+                    
+                }
             }
         })
         // Winner 5
         handle = previous_w.child("Winner5").observe(.value, with: { (snapshot) in
             if snapshot.value as? String != nil{
                 let winner = snapshot.value as? String
-                self.lblDes5.text = winner
-                self.imageview5.isHidden = false
-                self.lblDes5.isHidden = false
+                if winner != ""{
+                    self.lblDes5.text = winner
+                    self.imageview5.isHidden = false
+                    self.lblDes5.isHidden = false
+                }else{
+                    if Auth.auth().currentUser?.uid != nil{
+                        if Auth.auth().currentUser?.uid != "ATCiDNYJhYUgD8vRORJW7PaDAmj1"{
+                            self.imageview5.isHidden = true
+                            self.lblDes5.isHidden = true
+                        }
+                    }
+                    
+                }
             }
         })
         // Winner 6
         handle = previous_w.child("Winner6").observe(.value, with: { (snapshot) in
             if snapshot.value as? String != nil{
                 let winner = snapshot.value as? String
-                self.lblDes6.text = winner
-                self.imageview6.isHidden = false
-                self.lblDes6.isHidden = false
+                if winner != ""{
+                    self.lblDes6.text = winner
+                    self.imageview6.isHidden = false
+                    self.lblDes6.isHidden = false
+                }else{
+                    if Auth.auth().currentUser?.uid != nil{
+                        if Auth.auth().currentUser?.uid != "ATCiDNYJhYUgD8vRORJW7PaDAmj1"{
+                            self.imageview6.isHidden = true
+                            self.lblDes6.isHidden = true
+                        }
+                    }
+                    
+                }
             }
         })
         // Winner 7
         handle = previous_w.child("Winner7").observe(.value, with: { (snapshot) in
             if snapshot.value as? String != nil{
                 let winner = snapshot.value as? String
-                self.lblDes7.text = winner
-                self.imageview7.isHidden = false
-                self.lblDes7.isHidden = false
+                if winner != ""{
+                    self.lblDes7.text = winner
+                    self.imageview7.isHidden = false
+                    self.lblDes7.isHidden = false
+                }else{
+                    if Auth.auth().currentUser?.uid != nil{
+                        if Auth.auth().currentUser?.uid != "ATCiDNYJhYUgD8vRORJW7PaDAmj1"{
+                            self.imageview7.isHidden = true
+                            self.lblDes7.isHidden = true
+                        }
+                    }
+                    
+                }
             }
         })
         // Winner 8
         handle = previous_w.child("Winner8").observe(.value, with: { (snapshot) in
             if snapshot.value as? String != nil{
                 let winner = snapshot.value as? String
-                self.lblDes8.text = winner
-                self.imageview8.isHidden = false
-                self.lblDes8.isHidden = false
+                if winner != ""{
+                    self.lblDes8.text = winner
+                    self.imageview8.isHidden = false
+                    self.lblDes8.isHidden = false
+                }else{
+                    if Auth.auth().currentUser?.uid != nil{
+                        if Auth.auth().currentUser?.uid != "ATCiDNYJhYUgD8vRORJW7PaDAmj1"{
+                            self.imageview8.isHidden = true
+                            self.lblDes8.isHidden = true
+                        }
+                    }
+                    
+                }
             }
         })
     }

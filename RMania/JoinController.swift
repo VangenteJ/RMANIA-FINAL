@@ -153,42 +153,69 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
     }
     
     @IBAction func payment(_ sender: Any) {
-        let item = ref.child("Description Values")
-        handle = item.child("Item").observe(.value, with: { (snapshot) in
-            if snapshot.value as? String != nil{
-                let value = snapshot.value as? String
-                
-                // Process Payment once the pay button is clicked.
-                let price_to_pay = self.lblPrice.text
-                
-                let item1 = PayPalItem(name: value!, withQuantity: 1, withPrice: NSDecimalNumber(string: price_to_pay), withCurrency: "GBP", withSku: "SivaGanesh-0001")
-                
-                let items = [item1]
-                let subtotal = PayPalItem.totalPrice(forItems: items)
-                
-                // Optional: include payment details
-                let shipping = NSDecimalNumber(string: "0.00")
-                let tax = NSDecimalNumber(string: "0.00")
-                let paymentDetails = PayPalPaymentDetails(subtotal: subtotal, withShipping: shipping, withTax: tax)
-                
-                let total = subtotal.adding(shipping).adding(tax)
-                
-                let payment = PayPalPayment(amount: total, currencyCode: "GBP", shortDescription: "Alisha being sold at", intent: .sale)
-                
-                payment.items = items
-                payment.paymentDetails = paymentDetails
-                
-                if (payment.processable) {
+        if stack_control == 1 && txtEntry1.text == ""{
+            
+           txtEntry1.placeholder = "Please add name here!"
+        }else if stack_control == 2 && (txtEntry1.text == "" || txtEntry2.text == ""){
+            
+            txtEntry1.placeholder = "Please add name here!"
+            txtEntry2.placeholder = "Please add name here!"
+        }else if stack_control == 3 && (txtEntry1.text == "" || txtEntry2.text == "" || txtEntry3.text == ""){
+            
+            txtEntry1.placeholder = "Please add name here!"
+            txtEntry2.placeholder = "Please add name here!"
+            txtEntry3.placeholder = "Please add name here!"
+        }else if stack_control == 4 && (txtEntry1.text == "" || txtEntry2.text == "" || txtEntry3.text == "" || txtEntry4.text == ""){
+            
+            txtEntry1.placeholder = "Please add name here!"
+            txtEntry2.placeholder = "Please add name here!"
+            txtEntry3.placeholder = "Please add name here!"
+            txtEntry4.placeholder = "Please add name here!"
+        }else if stack_control == 5 && (txtEntry1.text == "" || txtEntry2.text == "" || txtEntry3.text == "" || txtEntry4.text == "" || txtEntry5.text == ""){
+            
+            txtEntry1.placeholder = "Please add name here!"
+            txtEntry2.placeholder = "Please add name here!"
+            txtEntry3.placeholder = "Please add name here!"
+            txtEntry4.placeholder = "Please add name here!"
+            txtEntry5.placeholder = "Please add name here!"
+        }else{
+            let item = ref.child("Description Values")
+            handle = item.child("Item").observe(.value, with: { (snapshot) in
+                if snapshot.value as? String != nil{
+                    let value = snapshot.value as? String
                     
-                    let paymentViewController = PayPalPaymentViewController(payment: payment, configuration: self.payPalConfig, delegate: self)
-                    self.present(paymentViewController!, animated: true, completion: nil)
-                }
-                else {
+                    // Process Payment once the pay button is clicked.
+                    let price_to_pay = self.lblPrice.text
                     
-                    print("Payment not processalbe: \(payment)")
+                    let item1 = PayPalItem(name: value!, withQuantity: 1, withPrice: NSDecimalNumber(string: price_to_pay), withCurrency: "GBP", withSku: "SivaGanesh-0001")
+                    
+                    let items = [item1]
+                    let subtotal = PayPalItem.totalPrice(forItems: items)
+                    
+                    // Optional: include payment details
+                    let shipping = NSDecimalNumber(string: "0.00")
+                    let tax = NSDecimalNumber(string: "0.00")
+                    let paymentDetails = PayPalPaymentDetails(subtotal: subtotal, withShipping: shipping, withTax: tax)
+                    
+                    let total = subtotal.adding(shipping).adding(tax)
+                    
+                    let payment = PayPalPayment(amount: total, currencyCode: "GBP", shortDescription: "Alisha being sold at", intent: .sale)
+                    
+                    payment.items = items
+                    payment.paymentDetails = paymentDetails
+                    
+                    if (payment.processable) {
+                        
+                        let paymentViewController = PayPalPaymentViewController(payment: payment, configuration: self.payPalConfig, delegate: self)
+                        self.present(paymentViewController!, animated: true, completion: nil)
+                    }
+                    else {
+                        
+                        print("Payment not processalbe: \(payment)")
+                    }
                 }
-            }
-        })
+            })
+        }
         
     }
     
@@ -364,10 +391,12 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
                     
                 }else if self.stack_control == 1{
                     
-                    if !self.txtEntry1.isEnabled || self.txtEntry1.text == ""{
-                        self.lblPrice.text = "0"
-                        self.btnpay.isEnabled = false
-                        print("0 here")
+                    if self.txtEntry1.text != ""{
+                        if !self.txtEntry1.isEnabled || !self.txtEntry1.text!.isEmpty{
+                            self.lblPrice.text = "0"
+                            self.btnpay.isEnabled = false
+                            print("0 here")
+                        }
                     }else{
                         
                         self.btnpay.isEnabled = true
