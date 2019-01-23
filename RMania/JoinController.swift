@@ -289,6 +289,7 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
     }
     
     func getPrice_From_DB(){
+        print ("pricey")
         let descriptions = ref.child("Description Values")
         handle = descriptions.child("PricePayPal").observe(.value, with: { (snapshot) in
             if snapshot.value as? NSNumber != nil{
@@ -391,12 +392,10 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
                     
                 }else if self.stack_control == 1{
                     
-                    if self.txtEntry1.text != ""{
-                        if !self.txtEntry1.isEnabled || !self.txtEntry1.text!.isEmpty{
-                            self.lblPrice.text = "0"
-                            self.btnpay.isEnabled = false
-                            print("0 here")
-                        }
+                    if !self.txtEntry1.isEnabled{
+                        self.lblPrice.text = "0"
+                        self.btnpay.isEnabled = false
+                        print ("here")
                     }else{
                         
                         self.btnpay.isEnabled = true
@@ -411,6 +410,7 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
     }
     
     func checkEntries(){
+        print ("Entries")
         let item = ref.child("Description Values")
         handle = item.child("Item").observe(.value, with: { (snapshot) in
             if snapshot.value as? String != nil{
@@ -426,6 +426,7 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
                         if value != ""{
                             self.txtEntry1.text = value
                             self.txtEntry1.isEnabled = false
+                            print ("Yawl")
                         }
                     }
                 })
