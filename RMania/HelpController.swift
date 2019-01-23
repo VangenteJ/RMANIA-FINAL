@@ -20,4 +20,17 @@ class HelpController: UIViewController {
         self.present(goBack, animated: true, completion: nil)
     }
 
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if checknet.connection(){
+            
+        }
+            
+        else{
+            
+            let noNet = self.storyboard?.instantiateViewController(withIdentifier: "Connection") as! ConnectionController
+            self.present(noNet , animated: true, completion: nil)
+            
+        }
+    }
 }

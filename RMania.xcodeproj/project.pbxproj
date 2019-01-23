@@ -18,6 +18,9 @@
 		0C6BD55E21AF4A8D00048769 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C6BD55D21AF4A8D00048769 /* GoogleService-Info.plist */; };
 		0C6BD56021B007ED00048769 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BD55F21B007ED00048769 /* MenuController.swift */; };
 		0C6BD56221B0080500048769 /* HistoricController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BD56121B0080500048769 /* HistoricController.swift */; };
+		0C7C4E4921F8C82700218A2F /* ConnectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7C4E4821F8C82700218A2F /* ConnectionController.swift */; };
+		0C7C4E4B21F8C84100218A2F /* checknet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7C4E4A21F8C84100218A2F /* checknet.swift */; };
+		0C7C4E4D21F8F31100218A2F /* MaintenanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7C4E4C21F8F31100218A2F /* MaintenanceController.swift */; };
 		0CC412F021C56589004D9C97 /* AdminController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC412EF21C56589004D9C97 /* AdminController.swift */; };
 		0CEAF8A821EE28000087EECB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CEAF89F21EE28000087EECB /* SystemConfiguration.framework */; };
 		0CEAF8A921EE28000087EECB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CEAF8A021EE28000087EECB /* AudioToolbox.framework */; };
@@ -45,6 +48,9 @@
 		0C6BD55D21AF4A8D00048769 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0C6BD55F21B007ED00048769 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		0C6BD56121B0080500048769 /* HistoricController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricController.swift; sourceTree = "<group>"; };
+		0C7C4E4821F8C82700218A2F /* ConnectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionController.swift; sourceTree = "<group>"; };
+		0C7C4E4A21F8C84100218A2F /* checknet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checknet.swift; sourceTree = "<group>"; };
+		0C7C4E4C21F8F31100218A2F /* MaintenanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceController.swift; sourceTree = "<group>"; };
 		0CC412EF21C56589004D9C97 /* AdminController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminController.swift; sourceTree = "<group>"; };
 		0CEAF89B21EE26610087EECB /* RMania-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RMania-Bridging-Header.h"; sourceTree = "<group>"; };
 		0CEAF89E21EE26E50087EECB /* ZZAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZZAppDelegate.h; sourceTree = "<group>"; };
@@ -110,8 +116,11 @@
 				0C6BD56121B0080500048769 /* HistoricController.swift */,
 				0CC412EF21C56589004D9C97 /* AdminController.swift */,
 				0C1DF16421CC54C400CE013E /* JoinController.swift */,
+				0C7C4E4821F8C82700218A2F /* ConnectionController.swift */,
+				0C7C4E4C21F8F31100218A2F /* MaintenanceController.swift */,
 				0C1DF16621CC54DC00CE013E /* HelpController.swift */,
 				0C229DAE21F0D4F900FDFCDA /* ResetPController.swift */,
+				0C7C4E4A21F8C84100218A2F /* checknet.swift */,
 				0C6BD54F21AF4A7100048769 /* Main.storyboard */,
 				0C6BD55221AF4A7200048769 /* Assets.xcassets */,
 				0C6BD55421AF4A7200048769 /* LaunchScreen.storyboard */,
@@ -277,9 +286,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C7C4E4B21F8C84100218A2F /* checknet.swift in Sources */,
 				0C229DAF21F0D4F900FDFCDA /* ResetPController.swift in Sources */,
+				0C7C4E4921F8C82700218A2F /* ConnectionController.swift in Sources */,
 				0C6BD56221B0080500048769 /* HistoricController.swift in Sources */,
 				0C1DF16721CC54DC00CE013E /* HelpController.swift in Sources */,
+				0C7C4E4D21F8F31100218A2F /* MaintenanceController.swift in Sources */,
 				0C1DF16521CC54C400CE013E /* JoinController.swift in Sources */,
 				0C6BD54E21AF4A7100048769 /* ViewController.swift in Sources */,
 				0C6BD56021B007ED00048769 /* MenuController.swift in Sources */,

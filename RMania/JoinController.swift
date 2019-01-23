@@ -484,6 +484,19 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
             }
         })
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if checknet.connection(){
+            
+        }
+            
+        else{
+            
+            let noNet = self.storyboard?.instantiateViewController(withIdentifier: "Connection") as! ConnectionController
+            self.present(noNet , animated: true, completion: nil)
+            
+        }
+    }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         txtEntry1.resignFirstResponder()

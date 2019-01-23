@@ -45,14 +45,19 @@ class ResetPController: UIViewController {
         let goTo_Main = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
         self.present(goTo_Main, animated: true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if checknet.connection(){
+            
+        }
+            
+        else{
+            
+            let noNet = self.storyboard?.instantiateViewController(withIdentifier: "Connection") as! ConnectionController
+            self.present(noNet , animated: true, completion: nil)
+            
+        }
     }
-    */
 
 }

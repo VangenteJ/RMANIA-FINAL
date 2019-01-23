@@ -21,11 +21,14 @@ class AdminController: UIViewController, UIImagePickerControllerDelegate, UINavi
     @IBOutlet weak var lblExtra: UILabel!
     
     @IBOutlet weak var segTab_To_Add: UISegmentedControl!
+    @IBOutlet weak var toggle: UISwitch!
     
     @IBOutlet weak var txtAddInfo: UITextField!
     
     var ref:DatabaseReference!
     var handle:DatabaseHandle?
+    
+    let user = Auth.auth().currentUser
     
     var image_number = 0
     
@@ -217,4 +220,55 @@ class AdminController: UIViewController, UIImagePickerControllerDelegate, UINavi
         picker.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func toggle(_ sender: Any) {
+        if !toggle.isOn{
+//            let maintain = self.storyboard?.instantiateViewController(withIdentifier: "Maintenance") as! MaintenanceController
+//            self.present(maintain, animated: true, completion: nil)
+        }else{
+            let adminAcess = ref.child("Admin").child((user?.uid)!)
+            handle = adminAcess.child("Access").observe(.value, with: { (snapshot) in
+                if snapshot.value != nil{
+                    let value = snapshot.value as! String
+                    if value != "Yes"{
+                        let maintain = self.storyboard?.instantiateViewController(withIdentifier: "Maintenance") as! MaintenanceController
+                        self.present(maintain, animated: true, completion: nil)
+                    }
+                }
+                
+            })
+        }
+    }
+    
+    func isMaintaining(){
+        if toggle.isOn{
+            let adminAcess = ref.child("Admin").child((user?.uid)!)
+            handle = adminAcess.child("Access").observe(.value, with: { (snapshot) in
+                if snapshot.value != nil{
+                    let value = snapshot.value as! String
+                    if value != "Yes"{
+                        let maintain = self.storyboard?.instantiateViewController(withIdentifier: "Maintenance") as! MaintenanceController
+                        self.present(maintain, animated: true, completion: nil)
+                    }
+                }
+                
+            })
+        }else{
+            
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if checknet.connection(){
+            
+        }
+            
+        else{
+            
+            let noNet = self.storyboard?.instantiateViewController(withIdentifier: "Connection") as! ConnectionController
+            self.present(noNet , animated: true, completion: nil)
+            
+        }
+        
+        
+    }
 }
