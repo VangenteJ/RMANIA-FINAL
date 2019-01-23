@@ -57,7 +57,6 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
         super.viewDidLoad()
         ref = Database.database().reference()
         checkEntries()
-        getPrice_From_DB()
         
         
         payPalConfig.acceptCreditCards = acceptCreditCards;
@@ -289,7 +288,6 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
     }
     
     func getPrice_From_DB(){
-        print ("pricey")
         let descriptions = ref.child("Description Values")
         handle = descriptions.child("PricePayPal").observe(.value, with: { (snapshot) in
             if snapshot.value as? NSNumber != nil{
@@ -395,13 +393,11 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
                     if !self.txtEntry1.isEnabled{
                         self.lblPrice.text = "0"
                         self.btnpay.isEnabled = false
-                        print ("here")
                     }else{
                         
                         self.btnpay.isEnabled = true
                         total = total * 1
                         self.lblPrice.text = (String(format: "%.2f", total))
-                        print("not 0 here")
                     }
                     
                 }
@@ -410,23 +406,23 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
     }
     
     func checkEntries(){
-        print ("Entries")
+        getPrice_From_DB()
         let item = ref.child("Description Values")
-        handle = item.child("Item").observe(.value, with: { (snapshot) in
-            if snapshot.value as? String != nil{
-                let value = snapshot.value as? String
+        handle = item.child("Item").observe(.value, with: { (snapshotItem) in
+            if snapshotItem.value as? String != nil{
+                let valueItem = snapshotItem.value as? String
                 
-                let descriptions = self.ref.child(value!).child("Participants").child((self.user?.uid)!)
-                let seler = self.ref.child(value!).child("Salers").child((self.user?.uid)!)
+                let descriptions = self.ref.child(valueItem!).child("Participants").child((self.user?.uid)!)
+                let seler = self.ref.child(valueItem!).child("Salers").child((self.user?.uid)!)
                 
                 self.handle = descriptions.child("Entry1").observe(.value, with: { (snapshot) in
                     if snapshot.value as? String != nil{
-                        let value = snapshot.value as? String
+                        let valueE1 = snapshot.value as? String
                         
-                        if value != ""{
-                            self.txtEntry1.text = value
+                        if valueE1 != ""{
+                            self.txtEntry1.text = valueE1
                             self.txtEntry1.isEnabled = false
-                            print ("Yawl")
+                            self.getPrice_From_DB()
                         }
                     }
                 })
