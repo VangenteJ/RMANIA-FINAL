@@ -229,6 +229,7 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
         handle = item.child("Item").observe(.value, with: { (snapshot) in
             if snapshot.value as? String != nil{
                 let value = snapshot.value as? String
+                let timeStamp = self.ref.child(value!).child("01_Time Stamp")
                 
                 let descriptions = self.ref.child(value!).child("Participants").child((self.user?.uid)!)
                 if self.txtEntry1.text != ""{
@@ -236,6 +237,7 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
                     if self.txtEntry1.isEnabled{
                         let name_token = self.txtEntry1.text! + "_" + String(token.suffix(6))
                         descriptions.child("Entry1").setValue(name_token)
+                        timeStamp.child(self.d_stamp()).setValue(name_token)
                     }
                     
                 }
@@ -244,6 +246,7 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
                     if self.txtEntry2.isEnabled{
                         let name_token = self.txtEntry2.text! + "_" + String(token.suffix(6))
                         descriptions.child("Entry2").setValue(name_token)
+                        timeStamp.child(self.d_stamp()).setValue(name_token)
                     }
                 }
                 if self.txtEntry3.text != ""{
@@ -251,6 +254,7 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
                     if self.txtEntry3.isEnabled{
                         let name_token = self.txtEntry3.text! + "_" + String(token.suffix(6))
                         descriptions.child("Entry3").setValue(name_token)
+                        timeStamp.child(self.d_stamp()).setValue(name_token)
                     }
                 }
                 if self.txtEntry4.text != ""{
@@ -258,6 +262,7 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
                     if self.txtEntry4.isEnabled{
                         let name_token = self.txtEntry4.text! + "_" + String(token.suffix(6))
                         descriptions.child("Entry4").setValue(name_token)
+                        timeStamp.child(self.d_stamp()).setValue(name_token)
                     }
                 }
                 if self.txtEntry5.text != ""{
@@ -265,6 +270,7 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
                     if self.txtEntry5.isEnabled{
                         let name_token = self.txtEntry5.text! + "_" + String(token.suffix(6))
                         descriptions.child("Entry5").setValue(name_token)
+                        timeStamp.child(self.d_stamp()).setValue(name_token)
                     }
                 }
             }
@@ -527,5 +533,20 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
                 })
             }
         })
+    }
+    
+    func d_stamp() -> String{
+        let formatter = DateFormatter()
+        // initially set the format based on your datepicker date / server String
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let myString = formatter.string(from: Date()) // string purpose I add here
+        // convert your string to date
+        let myDate = formatter.date(from: myString)
+        //then again set the date format whhich type of output you need
+        formatter.dateFormat = "dd-MMM-yyyy HH:mm:ss"
+        // again convert your date to string
+        let myStringafd = formatter.string(from: myDate!)
+        
+        return myStringafd
     }
 }

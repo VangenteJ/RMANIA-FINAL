@@ -30,7 +30,9 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MS5-1q-U0E">
                                         <rect key="frame" x="144" y="84" width="67" height="30"/>
-                                        <state key="normal" title="Try again!"/>
+                                        <state key="normal" title="Try again!">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="tryConnect:" destination="3Ih-hP-YgY" eventType="touchUpInside" id="leR-Bs-12k"/>
                                         </connections>
@@ -38,7 +40,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="G4L-vg-1ZN" firstAttribute="leading" secondItem="GpQ-og-Msj" secondAttribute="leading" constant="-10" id="R3R-Nj-oP7"/>
                             <constraint firstItem="G4L-vg-1ZN" firstAttribute="trailing" secondItem="GpQ-og-Msj" secondAttribute="trailing" constant="10" id="Skm-sZ-FV7"/>
@@ -71,7 +73,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="vRb-Zf-DIw" firstAttribute="leading" secondItem="6ab-BP-umy" secondAttribute="leading" constant="20" id="P76-mS-qGI"/>
                             <constraint firstItem="6ab-BP-umy" firstAttribute="trailing" secondItem="vRb-Zf-DIw" secondAttribute="trailing" constant="20" id="YYt-er-P8Z"/>
@@ -206,14 +208,18 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="F8T-cc-YIc"/>
                                                         </constraints>
-                                                        <state key="normal" title="Log in"/>
+                                                        <state key="normal" title="Log in">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="btnLogin_Register:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mU2-DL-CGH"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osb-3d-DFr">
                                                         <rect key="frame" x="98.5" y="128" width="109" height="128"/>
-                                                        <state key="normal" title="Reset Password"/>
+                                                        <state key="normal" title="Reset Password">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="reset_password:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iKY-9N-I8n"/>
                                                         </connections>
@@ -250,7 +256,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.10542778566322736" green="0.61213574826768991" blue="0.97152601522842641" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="IXW-zF-WiA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="6J1-dz-cTx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IXW-zF-WiA" secondAttribute="trailing" id="WdV-Uk-pRX"/>
@@ -292,7 +298,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="mM5-12-p8C">
-                                <rect key="frame" x="3" y="20" width="369" height="491"/>
+                                <rect key="frame" x="3" y="20" width="369" height="456"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="fOZ-Y2-KiL">
                                         <rect key="frame" x="0.0" y="0.0" width="48.5" height="41"/>
@@ -391,6 +397,7 @@
                                                     <segment title="Price"/>
                                                     <segment title="Extra"/>
                                                 </segments>
+                                                <color key="tintColor" red="0.29956700609999998" green="0.1244441543" blue="0.47590815359999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </segmentedControl>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gkH-Sp-NRi">
                                                 <rect key="frame" x="9" y="39" width="320" height="35"/>
@@ -404,7 +411,9 @@
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qab-1C-Khj">
                                                 <rect key="frame" x="299" y="85" width="30" height="30"/>
-                                                <state key="normal" title="Add"/>
+                                                <state key="normal" title="Add">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="addDetails:" destination="lrW-vo-Mn1" eventType="touchUpInside" id="UFO-Fu-Dbh"/>
                                                 </connections>
@@ -417,7 +426,9 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLI-LX-ymM">
                                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                                <state key="normal" title="Off"/>
+                                                                <state key="normal" title="Off">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
                                                                 <connections>
                                                                     <action selector="turn_maintenance_on_off:" destination="lrW-vo-Mn1" eventType="touchUpInside" id="QEQ-Sc-VIr"/>
                                                                 </connections>
@@ -435,7 +446,9 @@
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ZV-T7-wpR">
                                                                 <rect key="frame" x="0.0" y="0.0" width="32" height="30"/>
-                                                                <state key="normal" title="Stop"/>
+                                                                <state key="normal" title="Stop">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
                                                                 <connections>
                                                                     <action selector="disable_purchases:" destination="lrW-vo-Mn1" eventType="touchUpInside" id="v0A-4a-de1"/>
                                                                 </connections>
@@ -457,67 +470,50 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ajy-DC-54C">
                                                 <rect key="frame" x="0.0" y="0.0" width="64" height="30"/>
-                                                <state key="normal" title="Add img1"/>
+                                                <state key="normal" title="Add img1">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="addimage1:" destination="lrW-vo-Mn1" eventType="touchUpInside" id="5Kh-sQ-O19"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lel-WI-etl">
                                                 <rect key="frame" x="74" y="0.0" width="66" height="30"/>
-                                                <state key="normal" title="Add img2"/>
+                                                <state key="normal" title="Add img2">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="addimage2:" destination="lrW-vo-Mn1" eventType="touchUpInside" id="ELI-CZ-hlp"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzd-qk-INo">
                                                 <rect key="frame" x="150" y="0.0" width="66" height="30"/>
-                                                <state key="normal" title="Add img3"/>
+                                                <state key="normal" title="Add img3">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="addimage3:" destination="lrW-vo-Mn1" eventType="touchUpInside" id="5h3-Ed-25J"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hh4-LG-U9D">
                                                 <rect key="frame" x="226" y="0.0" width="66" height="30"/>
-                                                <state key="normal" title="Add img4"/>
+                                                <state key="normal" title="Add img4">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="addimage4:" destination="lrW-vo-Mn1" eventType="touchUpInside" id="VnK-iK-VlZ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GVc-q8-Lu7" userLabel="NewAdminStack">
-                                        <rect key="frame" x="0.0" y="426" width="277" height="30"/>
-                                        <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DjJ-7s-Ude">
-                                                <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="150" id="8nR-ys-9S6"/>
-                                                </constraints>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7d1-sW-QK3">
-                                                <rect key="frame" x="160" y="0.0" width="50" height="30"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="xda-ag-Rih"/>
-                                                </constraints>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5RT-ut-9Fj">
-                                                <rect key="frame" x="220" y="0.0" width="57" height="30"/>
-                                                <state key="normal" title="+ Admin"/>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rdC-gL-cIK">
-                                        <rect key="frame" x="0.0" y="461" width="34" height="30"/>
+                                        <rect key="frame" x="0.0" y="426" width="34" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYu-a4-JMh">
                                                 <rect key="frame" x="0.0" y="0.0" width="34" height="30"/>
-                                                <state key="normal" title="Back"/>
+                                                <state key="normal" title="Back">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="goBack:" destination="lrW-vo-Mn1" eventType="touchUpInside" id="bZZ-bX-5jC"/>
                                                 </connections>
@@ -527,7 +523,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.61526203400000001" green="0.91348123110000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="mM5-12-p8C" firstAttribute="leading" secondItem="XZQ-Jp-gCe" secondAttribute="leading" constant="3" id="NMU-p0-tZT"/>
                             <constraint firstItem="mM5-12-p8C" firstAttribute="top" secondItem="XZQ-Jp-gCe" secondAttribute="top" id="a7f-KP-fzq"/>
@@ -582,14 +578,18 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFX-eu-Gfh">
                                         <rect key="frame" x="168" y="118.5" width="39" height="30"/>
-                                        <state key="normal" title="Reset"/>
+                                        <state key="normal" title="Reset">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="reset_Pass:" destination="AGr-qt-6Qe" eventType="touchUpInside" id="Agb-oM-TsW"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SjG-mk-5X6">
                                         <rect key="frame" x="163.5" y="182.5" width="48" height="30"/>
-                                        <state key="normal" title="Cancel"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="goBack:" destination="AGr-qt-6Qe" eventType="touchUpInside" id="58M-LR-Zsa"/>
                                         </connections>
@@ -597,7 +597,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="7ne-VR-wsv" firstAttribute="width" secondItem="1FX-PL-de5" secondAttribute="width" id="Bgf-0f-KRf"/>
                             <constraint firstItem="riL-gL-DeZ" firstAttribute="trailing" secondItem="7ne-VR-wsv" secondAttribute="trailing" id="Q3s-Ba-1qT"/>
@@ -813,14 +813,18 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6z-l5-bMf">
                                                 <rect key="frame" x="291" y="0.0" width="74" height="30"/>
-                                                <state key="normal" title="Paypal Pay"/>
+                                                <state key="normal" title="Paypal Pay">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="payment:" destination="93J-27-96g" eventType="touchUpInside" id="ylV-Ts-NzU"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7B-rz-TrE">
                                                 <rect key="frame" x="317" y="40" width="48" height="30"/>
-                                                <state key="normal" title="Cancel"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="cancellation:" destination="93J-27-96g" eventType="touchUpInside" id="vTa-WA-OFw"/>
                                                 </connections>
@@ -830,7 +834,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.29956700609999998" green="0.1244441543" blue="0.47590815359999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="AXs-ng-LYE" firstAttribute="top" secondItem="12k-vf-nRw" secondAttribute="top" id="PO7-Rg-1VM"/>
                             <constraint firstItem="AXs-ng-LYE" firstAttribute="leading" secondItem="12k-vf-nRw" secondAttribute="leading" constant="5" id="hva-nL-vga"/>
@@ -914,7 +918,9 @@ If entry over £5 you get £2</string>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlo-ZV-N7D">
                                                         <rect key="frame" x="0.0" y="919" width="34" height="30"/>
-                                                        <state key="normal" title="Back"/>
+                                                        <state key="normal" title="Back">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="back:" destination="NZD-9S-0rh" eventType="touchUpInside" id="2ZJ-c9-4Ra"/>
                                                             <segue destination="wi5-Wr-SvA" kind="show" identifier="backtoMain" id="zyr-si-868"/>
@@ -926,7 +932,7 @@ If entry over £5 you get £2</string>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.61550921199999997" green="0.91302579640000003" blue="0.98825091119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="fwe-dW-Hfe" firstAttribute="centerX" secondItem="3u1-OT-0CB" secondAttribute="centerX" id="29V-EH-jxb"/>
                                             <constraint firstAttribute="trailing" secondItem="fwe-dW-Hfe" secondAttribute="trailing" id="6uj-9q-MTT"/>
@@ -947,7 +953,7 @@ If entry over £5 you get £2</string>
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.61550921199999997" green="0.91302579640000003" blue="0.98825091119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="UFB-KD-4Dv" firstAttribute="trailing" secondItem="i9D-s1-xjT" secondAttribute="trailing" constant="5" id="JkV-cl-sq0"/>
                             <constraint firstItem="UFB-KD-4Dv" firstAttribute="top" secondItem="i9D-s1-xjT" secondAttribute="top" constant="20" id="VYT-Qj-Q5x"/>
@@ -1171,6 +1177,7 @@ If entry over £5 you get £2</string>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxc-uZ-kun">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="22" height="30"/>
+                                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <connections>
                                                                                             <action selector="goToHelp:" destination="wi5-Wr-SvA" eventType="touchUpInside" id="n1g-Ku-AWG"/>
                                                                                             <segue destination="NZD-9S-0rh" kind="show" identifier="help" id="RaI-wj-cpX"/>
@@ -1183,7 +1190,9 @@ If entry over £5 you get £2</string>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sM3-0D-dO9">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                                                        <state key="normal" title="Join"/>
+                                                                                        <state key="normal" title="Join">
+                                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        </state>
                                                                                         <connections>
                                                                                             <action selector="Pay_PayPal:" destination="wi5-Wr-SvA" eventType="touchUpInside" id="4Ah-MV-BKU"/>
                                                                                             <segue destination="93J-27-96g" kind="show" identifier="join" id="yZh-Ud-h3w"/>
@@ -1191,7 +1200,9 @@ If entry over £5 you get £2</string>
                                                                                     </button>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wz3-qB-4FW">
                                                                                         <rect key="frame" x="40" y="0.0" width="68" height="30"/>
-                                                                                        <state key="normal" title="W/History"/>
+                                                                                        <state key="normal" title="W/History">
+                                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        </state>
                                                                                         <connections>
                                                                                             <action selector="Winners:" destination="wi5-Wr-SvA" eventType="touchUpInside" id="5ac-jN-OYL"/>
                                                                                         </connections>
@@ -1202,7 +1213,9 @@ If entry over £5 you get £2</string>
                                                                     </stackView>
                                                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NmB-65-5zT">
                                                                         <rect key="frame" x="0.0" y="0.0" width="365" height="0.0"/>
-                                                                        <state key="normal" title="Admin"/>
+                                                                        <state key="normal" title="Admin">
+                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
                                                                         <connections>
                                                                             <action selector="adminPage:" destination="wi5-Wr-SvA" eventType="touchUpInside" id="JKS-LM-82I"/>
                                                                             <segue destination="lrW-vo-Mn1" kind="show" identifier="adminpage" id="ZRX-RI-BOQ"/>
@@ -1215,7 +1228,9 @@ If entry over £5 you get £2</string>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Bg-Je-0aj">
                                                                         <rect key="frame" x="0.0" y="0.0" width="55" height="30"/>
-                                                                        <state key="normal" title="Log Out"/>
+                                                                        <state key="normal" title="Log Out">
+                                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
                                                                         <connections>
                                                                             <action selector="logOut:" destination="wi5-Wr-SvA" eventType="touchUpInside" id="XnG-oV-O1g"/>
                                                                         </connections>
@@ -1227,7 +1242,7 @@ If entry over £5 you get £2</string>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.61550921201705933" green="0.91302579641342163" blue="0.98825091123580933" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="9Nn-d9-jwn" secondAttribute="trailing" constant="5" id="1Tc-Cv-CcU"/>
                                             <constraint firstItem="9Nn-d9-jwn" firstAttribute="leading" secondItem="TXN-O5-E3w" secondAttribute="leading" constant="5" id="HGe-MW-fNm"/>
@@ -1236,7 +1251,7 @@ If entry over £5 you get £2</string>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.61526203400000001" green="0.91348123110000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="TXN-O5-E3w" firstAttribute="width" secondItem="Fyz-Dp-eVz" secondAttribute="width" id="LNy-sD-RM6"/>
                                     <constraint firstItem="TXN-O5-E3w" firstAttribute="leading" secondItem="Fyz-Dp-eVz" secondAttribute="leading" id="Mcx-Tg-e8W"/>
@@ -1247,7 +1262,7 @@ If entry over £5 you get £2</string>
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.61550921201705933" green="0.91302579641342163" blue="0.98825091123580933" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Fyz-Dp-eVz" firstAttribute="leading" secondItem="fxO-l4-uws" secondAttribute="leading" id="1Kn-H0-XPF"/>
                             <constraint firstItem="fxO-l4-uws" firstAttribute="trailing" secondItem="Fyz-Dp-eVz" secondAttribute="trailing" id="WXp-i5-7DY"/>
@@ -1302,7 +1317,9 @@ If entry over £5 you get £2</string>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="gFr-qx-9gs"/>
                                                         </constraints>
-                                                        <state key="normal" title="Back"/>
+                                                        <state key="normal" title="Back">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="Back:" destination="LjN-Rq-bxV" eventType="touchUpInside" id="Ila-53-QwK"/>
                                                         </connections>
@@ -1704,7 +1721,7 @@ If entry over £5 you get £2</string>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.61526203400000001" green="0.91348123110000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="Fc8-le-N1a" firstAttribute="top" secondItem="6VN-a0-jVd" secondAttribute="top" id="13C-mr-MGB"/>
                                             <constraint firstAttribute="trailing" secondItem="Fc8-le-N1a" secondAttribute="trailing" id="1Vf-cr-NIW"/>
@@ -1713,7 +1730,7 @@ If entry over £5 you get £2</string>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.61550921201705933" green="0.91302579641342163" blue="0.98825091123580933" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="6VN-a0-jVd" firstAttribute="height" secondItem="cbm-Ne-XuQ" secondAttribute="height" priority="250" id="6S1-Fr-nrH"/>
                                     <constraint firstAttribute="bottom" secondItem="6VN-a0-jVd" secondAttribute="bottom" id="8vS-T3-0f4"/>
@@ -1724,7 +1741,7 @@ If entry over £5 you get £2</string>
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.61550921201705933" green="0.91302579641342163" blue="0.98825091123580933" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="EX6-uE-Wq0" firstAttribute="bottom" secondItem="cbm-Ne-XuQ" secondAttribute="bottom" id="KKt-7U-IK1"/>
                             <constraint firstItem="EX6-uE-Wq0" firstAttribute="trailing" secondItem="cbm-Ne-XuQ" secondAttribute="trailing" id="Tux-nQ-DMu"/>
