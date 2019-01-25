@@ -57,6 +57,7 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
         super.viewDidLoad()
         ref = Database.database().reference()
         checkEntries()
+        isMaintaining()
         
         
         payPalConfig.acceptCreditCards = acceptCreditCards;
@@ -505,5 +506,26 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
         txtEntry4.resignFirstResponder()
         txtEntry5.resignFirstResponder()
         txtSelerName_Token.resignFirstResponder()
+    }
+    
+    func isMaintaining(){
+        let maintenance = ref.child("Maintenance")
+        
+        handle = maintenance.child("On_Off").observe(.value, with: { (snapshot) in
+            let value = snapshot.value as! String
+            if value == "On"{
+                
+                let adminAcess = self.ref.child("Admin").child((self.user?.uid)!)
+                self.handle = adminAcess.child("Access").observe(.value, with: { (snapshot) in
+                    if snapshot.value as? String != nil{
+                        let value = snapshot.value as! String
+                        if value != "Yes"{
+                            let maintain = self.storyboard?.instantiateViewController(withIdentifier: "Maintenance") as! MaintenanceController
+                            self.present(maintain, animated: true, completion: nil)
+                        }
+                    }
+                })
+            }
+        })
     }
 }

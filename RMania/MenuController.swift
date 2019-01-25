@@ -34,8 +34,12 @@ class MenuController: UIViewController {
     
     @IBOutlet weak var btnAdmin: UIButton!
     
+    @IBOutlet weak var btnJoin: UIButton!
+    
     var handle:DatabaseHandle?
     var ref:DatabaseReference!
+    
+    let user = Auth.auth().currentUser
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +50,8 @@ class MenuController: UIViewController {
         showParticipants()
         showSalers()
         display_token()
+        isPayment()
+        isMaintaining()
     }
     
     @IBAction func Pay_PayPal(_ sender: Any) {
@@ -277,15 +283,44 @@ class MenuController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if checknet.connection(){
-            
-        }
-            
-        else{
-            
+        if checknet.connection(){}else{
             let noNet = self.storyboard?.instantiateViewController(withIdentifier: "Connection") as! ConnectionController
             self.present(noNet , animated: true, completion: nil)
-            
         }
+    }
+    
+    // Payment function that will allow payment button to be enabled/disabled
+    func isPayment(){
+        let stop_p = ref.child("PayStop")
+        
+        handle = stop_p.child("Stop_Start").observe(.value, with: { (snapshot) in
+            let value = snapshot.value as! String
+            if value == "Stopped"{
+                self.btnJoin.isEnabled = false
+            }else if value == "Started"{
+                self.btnJoin.isEnabled = true
+            }
+        })
+    }
+    
+    func isMaintaining(){
+        let maintenance = ref.child("Maintenance")
+        
+        handle = maintenance.child("On_Off").observe(.value, with: { (snapshot) in
+            let value = snapshot.value as! String
+            if value == "On"{
+                
+                let adminAcess = self.ref.child("Admin").child((self.user?.uid)!)
+                self.handle = adminAcess.child("Access").observe(.value, with: { (snapshot) in
+                    if snapshot.value as? String != nil{
+                        let value = snapshot.value as! String
+                        if value != "Yes"{
+                            let maintain = self.storyboard?.instantiateViewController(withIdentifier: "Maintenance") as! MaintenanceController
+                            self.present(maintain, animated: true, completion: nil)
+                        }
+                    }
+                })
+            }
+        })
     }
 }

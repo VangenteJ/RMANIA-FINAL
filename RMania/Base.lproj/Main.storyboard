@@ -1259,6 +1259,7 @@ If entry over £5 you get £2</string>
                     <size key="freeformSize" width="375" height="941"/>
                     <connections>
                         <outlet property="btnAdmin" destination="NmB-65-5zT" id="Ast-mr-DJQ"/>
+                        <outlet property="btnJoin" destination="sM3-0D-dO9" id="iIX-dx-vXV"/>
                         <outlet property="imageview1" destination="eQj-Ey-gzu" id="lsU-yz-3T0"/>
                         <outlet property="imageview2" destination="Clf-Rs-h4G" id="CuQ-fs-gXM"/>
                         <outlet property="imageview3" destination="OLB-Ar-bhf" id="xUo-Gd-BU6"/>

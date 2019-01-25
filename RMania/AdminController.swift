@@ -275,43 +275,6 @@ class AdminController: UIViewController, UIImagePickerControllerDelegate, UINavi
         
     }
     
-    @IBAction func toggle(_ sender: Any) {
-        if !toggle.isOn{
-//            let maintain = self.storyboard?.instantiateViewController(withIdentifier: "Maintenance") as! MaintenanceController
-//            self.present(maintain, animated: true, completion: nil)
-        }else{
-            let adminAcess = ref.child("Admin").child((user?.uid)!)
-            handle = adminAcess.child("Access").observe(.value, with: { (snapshot) in
-                if snapshot.value != nil{
-                    let value = snapshot.value as! String
-                    if value != "Yes"{
-                        let maintain = self.storyboard?.instantiateViewController(withIdentifier: "Maintenance") as! MaintenanceController
-                        self.present(maintain, animated: true, completion: nil)
-                    }
-                }
-                
-            })
-        }
-    }
-    
-    func isMaintaining(){
-        if toggle.isOn{
-            let adminAcess = ref.child("Admin").child((user?.uid)!)
-            handle = adminAcess.child("Access").observe(.value, with: { (snapshot) in
-                if snapshot.value != nil{
-                    let value = snapshot.value as! String
-                    if value != "Yes"{
-                        let maintain = self.storyboard?.instantiateViewController(withIdentifier: "Maintenance") as! MaintenanceController
-                        self.present(maintain, animated: true, completion: nil)
-                    }
-                }
-                
-            })
-        }else{
-            
-        }
-    }
-    
     // Check if there is internet int he device
     override func viewDidAppear(_ animated: Bool) {
         if checknet.connection(){}else{
