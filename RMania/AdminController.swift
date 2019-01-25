@@ -27,7 +27,6 @@ class AdminController: UIViewController, UIImagePickerControllerDelegate, UINavi
     @IBOutlet weak var lblStart_Stop: UILabel!
     
     @IBOutlet weak var segTab_To_Add: UISegmentedControl!
-    @IBOutlet weak var toggle: UISwitch!
     
     @IBOutlet weak var txtAddInfo: UITextField!
     
@@ -117,8 +116,6 @@ class AdminController: UIViewController, UIImagePickerControllerDelegate, UINavi
             if snapshot.value as? String != nil{
                 let value = snapshot.value as? String
                 self.lblItem.text = value
-            }else {
-                print ("Se fudeu")
             }
         })
         

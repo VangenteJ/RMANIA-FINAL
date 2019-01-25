@@ -74,7 +74,7 @@ class ViewController: UIViewController {
                             self.mainMenu()
                         }
                         self.lblLog_Reg.textColor = UIColor.red
-                        self.lblLog_Reg.text = "Make sure your email is correct!"
+                        self.lblLog_Reg.text = "Email either invalid or already in use, password must be at least 6 characters long!"
                     }
                 }else {
                     self.lblLog_Reg.textColor = UIColor.red

@@ -62,8 +62,8 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
         
         payPalConfig.acceptCreditCards = acceptCreditCards;
         payPalConfig.merchantName = "Joel Vangente"
-        //        payPalConfig.merchantPrivacyPolicyURL = NSURL(string: "https://www.sivaganesh.com/privacy.html") as URL?
-        //        payPalConfig.merchantUserAgreementURL = NSURL(string: "https://www.sivaganesh.com/useragreement.html")! as URL
+        payPalConfig.merchantPrivacyPolicyURL = NSURL(string: "https://www.paypal.com/webapps/mpp/ua/privacy-full") as URL?
+        payPalConfig.merchantUserAgreementURL = NSURL(string: "https://www.paypal.com/webapps/mpp/ua/useragreement-full")! as URL
         payPalConfig.languageOrLocale = NSLocale.preferredLanguages[0]
         payPalConfig.payPalShippingAddressOption = .payPal;
         
@@ -135,21 +135,21 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
     // PayPalPaymentDelegate
     
     func payPalPaymentDidCancel(_ paymentViewController: PayPalPaymentViewController) {
-        print("PayPal Payment Cancelled")
         paymentViewController.dismiss(animated: true, completion: nil)
     }
     
     func payPalPaymentViewController(_ paymentViewController: PayPalPaymentViewController, didComplete completedPayment: PayPalPayment) {
         
-        print("PayPal Payment Success !")
         paymentViewController.dismiss(animated: true, completion: { () -> Void in
             // send completed confirmaion to your server
             self.add_entry_to_db()
             self.add_seler_to_DB()
-            let goBack = self.storyboard?.instantiateViewController(withIdentifier: "JoinController") as! JoinController
-            self.present(goBack, animated: true, completion: nil)
-            print("Here is your proof of payment:\n\n\(completedPayment.confirmation)\n\nSend this to your server for confirmation and fulfillment.")
+            
+            let receipt = self.ref.child("Receipt").child((self.user?.uid)!).child(self.d_stamp())
+            receipt.setValue(completedPayment.confirmation)
         })
+        let goBack = self.storyboard?.instantiateViewController(withIdentifier: "JoinController") as! JoinController
+        self.present(goBack, animated: true, completion: nil)
     }
     
     @IBAction func payment(_ sender: Any) {
@@ -187,7 +187,7 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
                     // Process Payment once the pay button is clicked.
                     let price_to_pay = self.lblPrice.text
                     
-                    let item1 = PayPalItem(name: value!, withQuantity: 1, withPrice: NSDecimalNumber(string: price_to_pay), withCurrency: "GBP", withSku: "SivaGanesh-0001")
+                    let item1 = PayPalItem(name: value!, withQuantity: 1, withPrice: NSDecimalNumber(string: price_to_pay), withCurrency: "GBP", withSku: "Joel-0001")
                     
                     let items = [item1]
                     let subtotal = PayPalItem.totalPrice(forItems: items)
@@ -199,7 +199,7 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
                     
                     let total = subtotal.adding(shipping).adding(tax)
                     
-                    let payment = PayPalPayment(amount: total, currencyCode: "GBP", shortDescription: "Alisha being sold at", intent: .sale)
+                    let payment = PayPalPayment(amount: total, currencyCode: "GBP", shortDescription: "Entry to participate", intent: .sale)
                     
                     payment.items = items
                     payment.paymentDetails = paymentDetails
@@ -284,7 +284,7 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
             if snapshot.value as? String != nil{
                 let value = snapshot.value as? String
                 
-                let descriptions = self.ref.child(value!).child("Salers").child((self.user?.uid)!)
+                let descriptions = self.ref.child(value!).child("Sellers").child((self.user?.uid)!)
                 if self.txtSelerName_Token.isEnabled{
                     if self.txtSelerName_Token.text != ""{
                         descriptions.child("Name").setValue(self.txtSelerName_Token.text)
@@ -420,7 +420,7 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
                 let valueItem = snapshotItem.value as? String
                 
                 let descriptions = self.ref.child(valueItem!).child("Participants").child((self.user?.uid)!)
-                let seler = self.ref.child(valueItem!).child("Salers").child((self.user?.uid)!)
+                let seler = self.ref.child(valueItem!).child("Sellers").child((self.user?.uid)!)
                 
                 self.handle = descriptions.child("Entry1").observe(.value, with: { (snapshot) in
                     if snapshot.value as? String != nil{
@@ -493,15 +493,9 @@ class JoinController: UIViewController, PayPalPaymentDelegate{
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if checknet.connection(){
-            
-        }
-            
-        else{
-            
+        if checknet.connection(){}else{
             let noNet = self.storyboard?.instantiateViewController(withIdentifier: "Connection") as! ConnectionController
             self.present(noNet , animated: true, completion: nil)
-            
         }
     }
 

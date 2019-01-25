@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
-        PayPalMobile.initializeWithClientIds(forEnvironments: [PayPalEnvironmentProduction: "AW4-eXw_M6XOrvXOFU2k0fPvc-NjuEd49F1m66S358hmjjZI0o6AbYucVDglC_ybiA6EHAU0_vFMDwTH", PayPalEnvironmentSandbox: "AW4-eXw_M6XOrvXOFU2k0fPvc-NjuEd49F1m66S358hmjjZI0o6AbYucVDglC_ybiA6EHAU0_vFMDwTH"])
+        PayPalMobile.initializeWithClientIds(forEnvironments: [PayPalEnvironmentProduction: "access_token$production$bnxvwrthvqcnw355$03e602180ea7668475b2bd25ae149ea3", PayPalEnvironmentSandbox: "access_token$sandbox$t8psmk97fb262354$56361dbb7c084c6d9a8f8a40e0fcd5c3"])
         
         
         return true

@@ -241,7 +241,7 @@ class MenuController: UIViewController {
                 var names = [String]()
                 var new = "Who sold:"
                 var loopNum = 0
-                let descriptions = self.ref.child(value!).child("Salers")
+                let descriptions = self.ref.child(value!).child("Sellers")
                 descriptions.observe(.value) { (snapshot) in
                     for child in snapshot.children.allObjects as![DataSnapshot]{
                         if loopNum == 1 {
@@ -260,7 +260,7 @@ class MenuController: UIViewController {
                         loopNum = 1
                     }
                     self.lblSalers.text = new
-                    self.lblno_selers.text = "\(names.count) Seler/s!"
+                    self.lblno_selers.text = "\(names.count) Seller/s!"
                 }
             }
         })
