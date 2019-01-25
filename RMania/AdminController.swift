@@ -20,6 +20,12 @@ class AdminController: UIViewController, UIImagePickerControllerDelegate, UINavi
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblExtra: UILabel!
     
+    @IBOutlet weak var btnMaintenance: UIButton!
+    @IBOutlet weak var lblMaintenance: UILabel!
+    
+    @IBOutlet weak var btnStart_Stop: UIButton!
+    @IBOutlet weak var lblStart_Stop: UILabel!
+    
     @IBOutlet weak var segTab_To_Add: UISegmentedControl!
     @IBOutlet weak var toggle: UISwitch!
     
@@ -36,6 +42,7 @@ class AdminController: UIViewController, UIImagePickerControllerDelegate, UINavi
         super.viewDidLoad()
         ref = Database.database().reference()
         retrieveData()
+        maintenance_payment()
 
         // Do any additional setup after loading the view.
     }
@@ -220,6 +227,54 @@ class AdminController: UIViewController, UIImagePickerControllerDelegate, UINavi
         picker.dismiss(animated: true, completion: nil)
     }
     
+    
+    @IBAction func turn_maintenance_on_off(_ sender: Any) {
+        let maintenance = ref.child("Maintenance")
+        if lblMaintenance.text == "Main ON"{
+            maintenance.child("On_Off").setValue("Off")
+        }else{
+            maintenance.child("On_Off").setValue("On")
+        }
+    }
+    
+    @IBAction func disable_purchases(_ sender: Any) {
+        let stop_p = ref.child("PayStop")
+        if lblStart_Stop.text == "Pay ON"{
+            stop_p.child("Stop_Start").setValue("Stopped")
+        }else{
+            stop_p.child("Stop_Start").setValue("Started")
+        }
+    }
+    
+    func maintenance_payment(){
+        // Get info from database regarding maintenance and purchase status
+        let maintenance = ref.child("Maintenance")
+        let stop_p = ref.child("PayStop")
+        
+        handle = maintenance.child("On_Off").observe(.value, with: { (snapshot) in
+            let value = snapshot.value as! String
+            if value == "On"{
+                self.btnMaintenance.setTitle("M OFF", for: .normal)
+                self.lblMaintenance.text = "Main ON"
+            }else if value == "Off"{
+                self.btnMaintenance.setTitle("M ON", for: .normal)
+                self.lblMaintenance.text = "Main OFF"
+            }
+        })
+        handle = stop_p.child("Stop_Start").observe(.value, with: { (snapshot) in
+            let value = snapshot.value as! String
+            if value == "Stopped"{
+                self.btnStart_Stop.setTitle("P ON", for: .normal)
+                self.lblStart_Stop.text = "Pay OFF"
+            }else if value == "Started"{
+                self.btnStart_Stop.setTitle("P OFF", for: .normal)
+                self.lblStart_Stop.text = "Pay ON"
+            }
+        })
+        
+        
+    }
+    
     @IBAction func toggle(_ sender: Any) {
         if !toggle.isOn{
 //            let maintain = self.storyboard?.instantiateViewController(withIdentifier: "Maintenance") as! MaintenanceController
@@ -257,18 +312,11 @@ class AdminController: UIViewController, UIImagePickerControllerDelegate, UINavi
         }
     }
     
+    // Check if there is internet int he device
     override func viewDidAppear(_ animated: Bool) {
-        if checknet.connection(){
-            
-        }
-            
-        else{
-            
+        if checknet.connection(){}else{
             let noNet = self.storyboard?.instantiateViewController(withIdentifier: "Connection") as! ConnectionController
             self.present(noNet , animated: true, completion: nil)
-            
         }
-        
-        
     }
 }
