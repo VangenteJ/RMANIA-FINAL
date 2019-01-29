@@ -10,5 +10,6 @@ target 'RMania' do
   	pod 'Firebase/Database'
 	pod 'Firebase/Storage'
   	pod 'PayPal-iOS-SDK'
+    pod 'IQKeyboardManagerSwift'
 
 end

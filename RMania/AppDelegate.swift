@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
+        IQKeyboardManager.shared.enable = true
         
         PayPalMobile.initializeWithClientIds(forEnvironments: [PayPalEnvironmentProduction: "access_token$production$bnxvwrthvqcnw355$03e602180ea7668475b2bd25ae149ea3", PayPalEnvironmentSandbox: "access_token$sandbox$t8psmk97fb262354$56361dbb7c084c6d9a8f8a40e0fcd5c3"])
         
